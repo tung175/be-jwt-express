@@ -1,12 +1,10 @@
 import express  from "express";
-import homeController from "../controllers/homeController";
-
+import apiController from "../controllers/apiController"
 const router = express.Router()
 
-export const initWebRoutes =(app) => {
-    router.get("/", homeController.handleHelloWord)
-    router.get("/user", homeController.handleUserPage)
-    router.post("/users/create-user", homeController.handleCreateUser)
-    return app.use("/", router)
+export const initApiRoutes =(app) => {
+    router.post("/register", apiController.handleRegister)
+    router.post("/login", apiController.handleLogin)
+    return app.use("/api/v1/", router)
 }
 
