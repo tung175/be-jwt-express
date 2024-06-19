@@ -112,4 +112,7 @@ module.exports = {
   handleHashPassword,
   registerNewUserService,
   handleLoginService,
+  checkEmail,
+  checkPhone,
+  checkPassword,
 };

@@ -29,6 +29,7 @@ module.exports = {
   },
   createFC: async (req, res) => {
     try {
+      let data = await userService.createANewUser(req.body)
       return res.status(200).json({
         EM: data.EM,
         EC: data.EC,
@@ -37,7 +38,7 @@ module.exports = {
     } catch (e) {
       console.log(e);
       return res.status(500).json({
-        EM: "",
+        EM: "Error form server",
         EC: "-1",
         DT: "",
       });
@@ -45,6 +46,7 @@ module.exports = {
   },
   updateFC: async (req, res) => {
     try {
+      let data = await userService.UpdateAUser(req.body)
       return res.status(200).json({
         EM: data.EM,
         EC: data.EC,
@@ -61,6 +63,7 @@ module.exports = {
   },
   deleteFC: async (req, res) => {
     try {
+        let data = await userService.deleteAUser(req.body.id)
       return res.status(200).json({
         EM: data.EM,
         EC: data.EC,
