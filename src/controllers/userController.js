@@ -78,4 +78,16 @@ module.exports = {
       });
     }
   },
+  getUserAccount: async (req, res) => {
+    return res.status(200).json({
+      EM: "Ok",
+      EC: 0,
+      DT: {
+        access_token: req.token,
+        groupWithRoles: req.user.groupWithRoles,
+        email: req.user.email,
+        username: req.user.username
+      }
+    })
+  }
 };
